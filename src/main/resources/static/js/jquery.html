@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<select class="form-control" name="transferFrom" id="transferFrom" required="required">
+    <option disabled="disabled" selected="selected"> -- select your account --</option>
+    <option value="Primary">Primary</option>
+    <option value="Savings">Savings</option>
+</select>
+<br/>
+</div>
+
+<br>
+<div class="form-group">
+
+    <select class="form-control" name="transferTo" id="transferTo" required="required">
+        <option disabled="disabled" selected="selected"> -- select your account --</option>
+        <option value="Primary">Primary</option>
+        <option value="Savings">Savings</option>
+    </select>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#transferFrom").change(function () {
+            if ($("#transferFrom").val() == "Primary") {
+                console.log($("#transferFrom").val());
+                $("#transferTo").val("Savings");
+            } else if ($("#transferFrom").val() == "Savings") {
+                console.log($("#transferFrom").val());
+                $("#transferTo").val("Primary");
+            }
+        })
+
+        $("#transferTo").change(function () {
+            if ($("#transferTo").val() == "Primary") {
+                $("#transferFrom").val("Savings");
+            } else if ($("#transferTo").val() == "Savings") {
+                $("#transferFrom").val("Primary");
+            }
+        })
+
+        /* $("#transferFrom").change(function () {
+         if($("#transferFrom").val() == "Primary"){
+         console.log($("#transferFrom").val());
+         $("#transferTo").val("Savings");
+         }else if($("#transferFrom").val() == "Savings"){
+         console.log($("#transferFrom").val());
+         $("#transferTo").val("Primary");
+         }
+         })*/
+    })
+</script>
+
+</body>
+</html>
